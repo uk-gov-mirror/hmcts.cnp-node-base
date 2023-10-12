@@ -1,5 +1,5 @@
-ARG NODE_VERSION=18
-FROM hmctspublic.azurecr.io/imported/library/node:$NODE_VERSION-buster-slim
+ARG NODE_VERSION=20
+FROM hmctspublic.azurecr.io/imported/library/node:$NODE_VERSION-bookworm-slim
 
 ENV APP_USER=hmcts \
     WORKDIR=/opt/app

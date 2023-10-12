@@ -17,8 +17,8 @@ We recommend that you use the alpine image as it is smaller and most of the time
 
 | Tag                                                 | OS             | NodeJS version |
 | ----------------------------------------------------| -------------- | -------------- |
-| `hmctspublic.azurecr.io/base/node:18-alpine`        | Alpine         | LTS 18         |
-| `hmctspublic.azurecr.io/base/node:18-buster-slim`   | Debian buster  | LTS 18         |
+| `hmctspublic.azurecr.io/base/node:20-alpine`        | Alpine         | LTS 20         |
+| `hmctspublic.azurecr.io/base/node:20-bookworm-slim` | Debian bookworm| LTS 20         |
 
 ## Background
 
@@ -42,7 +42,7 @@ _Nota Bene_:
 
 ```Dockerfile
 ### base image ###
-FROM hmctspublic.azurecr.io/base/node:18-alpine as base
+FROM hmctspublic.azurecr.io/base/node:20-alpine as base
 COPY package.json yarn.lock ./
 RUN yarn install
 
@@ -58,7 +58,7 @@ You can also leverage on alpine distributions to create smaller runtime images:
 Simple:
 ```Dockerfile
 # ---- Dependencies image ----
-FROM hmctspublic.azurecr.io/base/node:18-alpine as base
+FROM hmctspublic.azurecr.io/base/node:20-alpine as base
 COPY --chown=hmcts:hmcts package.json yarn.lock ./
 RUN yarn install --production
 
@@ -70,7 +70,7 @@ EXPOSE 3000
 
 More complex example:
 ```Dockerfile
-FROM hmctspublic.azurecr.io/base/node:18-alpine as base
+FROM hmctspublic.azurecr.io/base/node:20-alpine as base
 
 COPY package.json yarn.lock ./
 
@@ -99,7 +99,7 @@ Apk/apt packages installation requires the `root` user so you may switch tempora
 
 ```Dockerfile
 ### build image (Debian) ###
-FROM hmctspublic.azurecr.io/base/node:18-buster-slim as base
+FROM hmctspublic.azurecr.io/base/node:20-bookworm-slim as base
 
 USER root
 RUN apt-get update && apt-get install ...
