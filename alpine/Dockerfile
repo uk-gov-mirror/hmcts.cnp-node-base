@@ -14,6 +14,7 @@ RUN apk update && apk --no-cache add shadow \
   && apk del shadow \
   && addgroup -g 1000 -S $APP_USER \
   && adduser -u 1000 -S $APP_USER -G $APP_USER \
+  && mkdir /opt/app \
   && chown -R $APP_USER:$APP_USER /opt/app \
   && mkdir /opt/.yarn \
   && chown -R $APP_USER:$APP_USER /opt/.yarn
