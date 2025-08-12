@@ -17,7 +17,7 @@ jobs:
       AZURE_CONTAINER_REGISTRY_URL: hmctspublic.azurecr.io
     steps:
       - name: Checkout Source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Hadolint Dockerfile
         # TODO https://github.com/hadolint/hadolint-action/pull/45
         uses: mblottiere/hadolint-action@3cfc69d4b25bafd525584886f73b385ee4f3ce28
