@@ -52,7 +52,7 @@ jobs:
 
       - name: 'Build and Test - ${{ env.AZURE_CONTAINER_REGISTRY_URL }} - Node ${{ matrix.node }} ${{ matrix.type }}'
         id: docker_build_test
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ matrix.type }}
           load: true
@@ -75,7 +75,7 @@ jobs:
 
       - name: 'Build and push PR image - ${{ env.NEW_AZURE_CONTAINER_REGISTRY_URL }} - Node ${{ matrix.node }} ${{ matrix.type }}'
         if: startsWith(github.ref, 'refs/pull')
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ matrix.type }}
           push: true
@@ -89,7 +89,7 @@ jobs:
       ###################################################
       - name: 'Build and Push PR image - ${{ env.AZURE_CONTAINER_REGISTRY_URL }} - Node ${{ matrix.node }} ${{ matrix.type }}'
         if: startsWith(github.ref, 'refs/pull')
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ./${{ matrix.type }}
           push: true
